@@ -321,13 +321,24 @@
   }
 
   // 5. Checkout, Rakit Pesan & Pindah ke WA
-  // 5. Checkout, Rakit Pesan & Pindah ke WA
   window.addEventListener('load', () => {
     let btnCheckout = document.getElementById('btn-checkout-wa');
     if(btnCheckout) {
       btnCheckout.addEventListener('click', () => {
         if (cart.length === 0) {
-          alert("Pilih menu minuman dulu ya!");
+          Toastify({
+            text: "⚠️ Keranjang masih kosong! Pilih minuman dulu ya.",
+            duration: 3000, // Hilang otomatis dalam 3 detik
+            close: true,    // Ada tombol X untuk menutup
+            gravity: "top", // Melayang di atas
+            position: "center", // Posisi di tengah layar
+            style: {
+              background: "#e74c3c", // Warna merah agar terlihat sebagai peringatan
+              color: "#ffffff",
+              borderRadius: "10px",
+              fontWeight: "bold"
+            }
+          }).showToast();
           return;
         }
 
@@ -336,8 +347,22 @@
         
         // Cek apakah nama kosong
         if (customerName === "") {
-          alert("Mohon masukkan nama Anda terlebih dahulu!");
-          document.getElementById('customer-name').focus(); // Arahkan kursor ke input nama
+          Toastify({
+            text: "Mohon isi nama Anda agar pesanan tidak tertukar!",
+            duration: 3000,
+            close: true,
+            gravity: "top",
+            position: "center",
+            style: {
+              background: "#ff0000", // Warna oranye untuk informasi
+              color: "#ffffff",
+              borderRadius: "10px",
+              fontWeight: "bold"
+            }
+          }).showToast();
+          
+          // Setelah notifikasi muncul, otomatis arahkan kursor ke kolom nama
+          document.getElementById('customer-name').focus(); 
           return; // Hentikan proses jika nama belum diisi
         }
 
