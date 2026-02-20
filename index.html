@@ -780,6 +780,38 @@
         </div>
       </div>
     </footer>
+    <button class="cart-floating-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+      <i class="bi bi-cart3"></i>
+      <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        0
+      </span>
+    </button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel" style="background-color: #0c0b09; color: white;">
+      <div class="offcanvas-header border-bottom border-secondary">
+        <h5 class="offcanvas-title" id="cartOffcanvasLabel" style="color: #2E8B57; font-family: 'Playfair Display', serif; font-weight: bold;">Keranjang Pesanan</h5>
+        <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <div id="cart-items" class="flex-grow-1 overflow-auto">
+          <p class="text-center text-muted mt-4">Keranjang masih kosong</p>
+        </div>
+        <div class="cart-footer border-top border-secondary pt-3 mt-3">
+          <div class="d-flex justify-content-between mb-3" style="font-size: 18px; font-weight: bold;">
+            <span>Total Tagihan:</span>
+            <span id="cart-total" style="color: #2E8B57;">Rp 0</span>
+          </div>
+          
+          <div class="mb-3">
+            <input type="text" id="customer-name" class="form-control" placeholder="Masukkan Nama Anda" style="background-color: #1a1814; color: white; border: 1px solid #37332a;">
+          </div>
+          
+          <button id="btn-checkout-wa" class="btn-whatsapp w-100" style="border-radius: 8px; border: none; padding: 10px;">
+            <i class="bi bi-whatsapp"></i> Pesan via WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
